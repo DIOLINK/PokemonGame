@@ -1,0 +1,42 @@
+html,
+body {
+  background-color: #f1f1f1;
+  margin: 0px;
+}
+h1 p {
+  margin-bottom: 0;
+}
+.title {
+  margin-bottom: 0;
+  font-size: 60px;
+  font-weight: bold;
+  color: #2f4f4f;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-transform: capitalize;
+}
+
+.answer-true {
+  font-size: 40px;
+  font-weight: bold;
+  color: #0f7c33;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-transform: capitalize;
+}
+.answer-false {
+  font-size: 40px;
+  font-weight: bold;
+  color: #7c0f0f;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-transform: capitalize;
+}
+
+.btn {
+  padding: 20px;
+  font-size: 20px;
+  border-radius: 5px;
+  box-shadow: 2px 5px 9px 1px #1d1d1f5c;
+  border: none;
+}
