@@ -1,20 +1,13 @@
 import pokemonApi from "../api/pokemonApi"
 
-const getPokemons = () => { 
+export const getPokemons = () => { 
 
   const pokemonsArr = Array.from(Array(650))
   return pokemonsArr.map((_, i) =>  i + 1 )
 
 }
 
-const getPokemonOptions = async () => {
-  const mixedPokemons = getPokemons().sort(() => Math.random() - 0.5)
-  const pokemons = await getPokemonNames(mixedPokemons.splice(0, 4))
-  // console.log('pokemons :>> ', pokemons);
-  return pokemons
- }
-
-const getPokemonNames = async ([a,b,c,d]=[]) => { 
+export const getPokemonNames = async ([a,b,c,d]=[]) => { 
   // const res = await pokemonApi.get(`/1`)
   // console.log('res', res);
   const promisesArr = [
@@ -31,6 +24,13 @@ const getPokemonNames = async ([a,b,c,d]=[]) => {
     { name: p3.data.name, id: p3.data.id, },
     { name: p4.data.name, id: p4.data.id, },
   ]
+}
+
+const getPokemonOptions = async () => {
+  const mixedPokemons = getPokemons().sort(() => Math.random() - 0.5)
+  const pokemons = await getPokemonNames(mixedPokemons.splice(0, 4))
+  // console.log('pokemons :>> ', pokemons);
+  return pokemons
 }
 
 export default getPokemonOptions
