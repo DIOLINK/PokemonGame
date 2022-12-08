@@ -1,5 +1,7 @@
 # Pokemon Game
 
+[Play Game!!](https://diolink.github.io/PokemonGame/)
+
 ## Project setup
 ```
 npm install
