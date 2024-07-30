@@ -1,6 +1,6 @@
 # Pokemon Game
 
-[Play Game!!](https://diolink.github.io/PokemonGame/)
+[Play Game!!](https://master--pokegame-tp.netlify.app/)
 
 ## Project setup
 ```
