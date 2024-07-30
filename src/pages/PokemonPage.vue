@@ -16,13 +16,19 @@
     <h2 :class="correct">{{ message }}</h2>
     <button class="btn" @click="resetGame">Jugar de Nuevo</button>
   </template>
+  <div class="player-name">
+    <h2>Ingresa tu nombre de jugador</h2>
+    <input v-model="playerName" placeholder="Nombre de jugador" />
+    <button @click="savePlayerName">Guardar</button>
+    <p v-if="savedName">Nombre guardado: {{ savedName }}</p>
+  </div>
 </template>
 
 <script>
-import PokemonPicture from '@/components/PokemonPicture.vue';
-import PokemonOptions from '@/components/PokemonOptions.vue';
-
-import getPokemonOptions from '@/helpers/getPokemonOptions';
+import PokemonPicture from '../components/PokemonPicture.vue';
+import PokemonOptions from '../components/PokemonOptions.vue';
+import getPokemonOptions from '../helpers/getPokemonOptions';
+import { ref, onMounted } from 'vue';
 
 export default {
   components: {
@@ -37,6 +43,25 @@ export default {
       showAnswer: false,
       correct: null,
       answer: '',
+    };
+  },
+  setup() {
+    const playerName = ref('');
+    const savedName = ref('');
+
+    const savePlayerName = () => {
+      localStorage.setItem('playerName', playerName.value);
+      savedName.value = playerName.value;
+    };
+
+    onMounted(() => {
+      savedName.value = localStorage.getItem('playerName') || '';
+    });
+
+    return {
+      playerName,
+      savedName,
+      savePlayerName,
     };
   },
   methods: {
@@ -69,3 +94,12 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.player-name {
+  border-radius: 5px;
+  border: 1px solid rgba(239, 240, 185, 0.2);
+  padding: 10px;
+  box-shadow: 2px 5px 9px 1px #1d1d1f5c;
+}
+</style>
